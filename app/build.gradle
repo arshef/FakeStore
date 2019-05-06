@@ -25,7 +25,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
-    implementation 'io.requery:sqlite-android:3.28.0'
-    implementation 'io.requery:requery:1.6.0'
-    implementation 'io.requery:requery-android:1.6.0'
+    implementation 'com.github.satyan:sugar:1.5'
 }

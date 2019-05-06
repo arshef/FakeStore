@@ -1,8 +1,9 @@
 package com.arshef.fakestore.Models;
 
-import io.requery.Entity;
+import com.orm.SugarRecord;
 
-@Entity
-public abstract class User {
-
+public class User extends SugarRecord {
+    int Id;
+    String Username;
+    String Password;
 }
