@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.arshef.fakestore.Models.Basket;
 import com.arshef.fakestore.R;
@@ -31,9 +32,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 List<Basket> basketList = dbTools.test();
-                for (int i = 0; i < 2; i++) {
-                    int a = i;
-                }
+                TextView textView = findViewById(R.id.textView);
+                textView.setText(basketList.toString());
             }
         });
     }
