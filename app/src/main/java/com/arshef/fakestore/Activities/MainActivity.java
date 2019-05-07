@@ -29,7 +29,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 List<Basket> basketList = dbTools.test();
+                for (int i = 0; i < 2; i++) {
+                    int a = i;
+                }
             }
         });
     }
+
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        SugarContext.terminate();
+//    }
+
 }
