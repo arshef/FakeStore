@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         SugarContext.init(getApplicationContext());
+        SugarDb db = new SugarDb(this);
+        db.onCreate(db.getDB());
         dbTools = new DBTools();
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -31,15 +33,8 @@ public class MainActivity extends AppCompatActivity {
                 List<Basket> basketList = dbTools.test();
                 for (int i = 0; i < 2; i++) {
                     int a = i;
-                }//
+                }
             }
         });
     }
-
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        SugarContext.terminate();
-//    }
-
 }
