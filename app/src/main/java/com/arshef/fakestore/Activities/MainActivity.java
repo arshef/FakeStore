@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 List<Basket> basketList = dbTools.test();
                 for (int i = 0; i < 2; i++) {
                     int a = i;
-                }
+                }//
             }
         });
     }
