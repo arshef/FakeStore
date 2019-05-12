@@ -6,7 +6,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.arshef.fakestore.Models.User;
 import com.arshef.fakestore.R;
 import com.arshef.fakestore.Tools.DBTools;
 import com.orm.SugarContext;
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         SugarDb db = new SugarDb(this);
         db.onCreate(db.getDB());
         dbTools = new DBTools();
+        TextView textView = findViewById(R.id.textView);
+        textView.setText(User.listAll(User.class).toString());
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
 //                List<Basket> basketList = dbTools.test();
 //                TextView textView = findViewById(R.id.textView);
 //                textView.setText(basketList.toString());
-                Intent intent = new Intent(MainActivity.this, MapActivity.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
     }
