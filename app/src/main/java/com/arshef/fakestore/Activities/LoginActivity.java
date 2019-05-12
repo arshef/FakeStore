@@ -41,6 +41,8 @@ public class LoginActivity extends AppCompatActivity {
                 if (StaticTools.Authenticate(username.getText().toString())) {
                     if (Authorize(username.getText().toString(), password.getText().toString())) {
                         isLoggedIn = true;
+                        Intent intent = new Intent(LoginActivity.this, StoreActivity.class);
+                        startActivity(intent);
                     } else {
                         StaticTools.ToastMaker(LoginActivity.this, "Password is incorrect!");
                     }

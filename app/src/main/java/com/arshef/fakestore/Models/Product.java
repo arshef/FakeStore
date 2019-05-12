@@ -16,5 +16,18 @@ public class Product extends SugarRecord {
     public Product(String title, int price) {
         Title = title;
         Price = price;
+        Image = null;
+    }
+
+    public String getTitle() {
+        return Title;
+    }
+
+    public int getPrice() {
+        return Price;
+    }
+
+    public byte[] getImage() {
+        return Image;
     }
 }

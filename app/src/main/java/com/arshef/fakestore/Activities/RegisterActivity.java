@@ -1,5 +1,6 @@
 package com.arshef.fakestore.Activities;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -62,7 +63,9 @@ public class RegisterActivity extends AppCompatActivity {
                 AddUser();
                 LoginActivity.isLoggedIn = true;
                 StaticTools.ToastMaker(RegisterActivity.this, "Welcome!");
-                //TOdo:go to main page
+                isAllowed = false;
+                Intent intent = new Intent(RegisterActivity.this, StoreActivity.class);
+                startActivity(intent);
             }
         });
         final TextView errorLabel = findViewById(R.id.errorLabel);
