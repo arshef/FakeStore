@@ -20,12 +20,12 @@
             android:value="db.db" />
         <meta-data
             android:name="VERSION"
-            android:value="2" />
+            android:value="1" />
         <meta-data
             android:name="QUERY_LOG"
             android:value="true" />
-        <!--<meta-data-->
-            <!--android:name="DOMAIN_PACKAGE_NAME"-->
-            <!--android:value="com.arshef" />-->
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.arshef" />
     </application>
 </manifest>
