@@ -4,15 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.arshef.fakestore.Models.User;
 import com.arshef.fakestore.R;
 import com.arshef.fakestore.Tools.DBTools;
 import com.orm.SugarContext;
 import com.orm.SugarDb;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     DBTools dbTools;
@@ -24,19 +23,13 @@ public class MainActivity extends AppCompatActivity {
         SugarContext.init(getApplicationContext());
         SugarDb db = new SugarDb(this);
         db.onCreate(db.getDB());
-        dbTools = new DBTools();
-        TextView textView = findViewById(R.id.textView);
-        textView.setText(User.listAll(User.class).toString());
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
             @Override
-            public void onClick(View v) {
-//                List<Basket> basketList = dbTools.test();
-//                TextView textView = findViewById(R.id.textView);
-//                textView.setText(basketList.toString());
+            public void run() {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
-        });
+        },1500);
     }
 }
