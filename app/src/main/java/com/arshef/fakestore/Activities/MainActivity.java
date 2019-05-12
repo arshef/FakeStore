@@ -1,19 +1,16 @@
 package com.arshef.fakestore.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-import com.arshef.fakestore.Models.Basket;
 import com.arshef.fakestore.R;
 import com.arshef.fakestore.Tools.DBTools;
 import com.orm.SugarContext;
 import com.orm.SugarDb;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     DBTools dbTools;
@@ -30,9 +27,10 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<Basket> basketList = dbTools.test();
-                TextView textView = findViewById(R.id.textView);
-                textView.setText(basketList.toString());
+//                List<Basket> basketList = dbTools.test();
+//                TextView textView = findViewById(R.id.textView);
+//                textView.setText(basketList.toString());
+                Intent intent = new Intent(MainActivity.this, MapActivity.class);
             }
         });
     }
