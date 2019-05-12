@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.arshef.fakestore.Models.Basket;
 import com.arshef.fakestore.R;
 import com.arshef.fakestore.Tools.DBTools;
-import com.orm.SchemaGenerator;
 import com.orm.SugarContext;
 import com.orm.SugarDb;
 
