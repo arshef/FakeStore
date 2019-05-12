@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login_layout);
         final EditText username = findViewById(R.id.username);
         final EditText password = findViewById(R.id.password);
-        Button loginBtn = findViewById(R.id.loginBtn);
+        Button loginBtn = findViewById(R.id.login_btn);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
