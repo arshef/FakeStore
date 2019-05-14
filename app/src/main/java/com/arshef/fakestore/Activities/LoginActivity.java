@@ -66,6 +66,6 @@ public class LoginActivity extends AppCompatActivity {
         if (User.find(User.class, "Username = ? and Password = ?", username, password).size() > 0) {
             return true;
         }
-        return false;
+        return false; //
     }
 }
