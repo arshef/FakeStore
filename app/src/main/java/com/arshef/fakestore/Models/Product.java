@@ -9,6 +9,7 @@ public class Product extends SugarRecord {
     @NotNull
     int Price;
     byte[] Image;
+    String Description;
 
     public Product() {
     }

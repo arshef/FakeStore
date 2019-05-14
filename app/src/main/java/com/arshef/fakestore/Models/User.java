@@ -4,14 +4,15 @@ import com.orm.SugarRecord;
 import com.orm.dsl.NotNull;
 import com.orm.dsl.Unique;
 
+import java.util.List;
+
 public class User extends SugarRecord {
     @Unique
     @NotNull
     String Username;
     @NotNull
     String Password;
-    Basket Basket;
-    BasketHistory History;
+    List<Basket> Baskets;
 
     public User() {
     }
