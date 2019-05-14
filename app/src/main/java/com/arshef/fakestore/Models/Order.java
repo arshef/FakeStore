@@ -28,7 +28,7 @@ public class Order extends SugarRecord {
         Long = aLong;
         Products = products;
         Price = price;
-        isFinished = true;
+        isFinished = false;
     }
 
     public void setFinished(boolean finished) {
