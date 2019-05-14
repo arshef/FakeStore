@@ -29,8 +29,12 @@
         <activity
             android:name=".Activities.RegisterActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name=".Activities.StoreActivity" />
-        <activity android:name=".Activities.Admin.AddProductActivity" />
+        <activity
+            android:name=".Activities.StoreActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".Activities.Admin.AddProductActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

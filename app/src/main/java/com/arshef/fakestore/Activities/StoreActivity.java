@@ -24,9 +24,9 @@ public class StoreActivity extends AppCompatActivity {
         rv.setLayoutManager(glm);
         List<Product> products = new ArrayList<>();
         products.add(new Product("A", 1));
-        products.add(new Product("A", 1));
-        products.add(new Product("A", 1));
-        products.add(new Product("A", 1));
+        products.add(new Product("B", 2));
+        products.add(new Product("C", 3));
+        products.add(new Product("D", 4));
 //        RVAdapter adapter = new RVAdapter(Product.listAll(Product.class));
         RVAdapter adapter = new RVAdapter(products);
         rv.setAdapter(adapter);
