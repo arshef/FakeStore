@@ -22,6 +22,7 @@ public class StoreActivity extends AppCompatActivity {
         GridLayoutManager glm = new GridLayoutManager(this, 1);
         rv.setLayoutManager(glm);
         List<Product> products = Product.listAll(Product.class);
+        Product product = Product.findById(Product.class, 1);
         RVAdapter adapter = new RVAdapter(products, this);
         rv.setAdapter(adapter);
     }

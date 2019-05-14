@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,17 +71,19 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
     }
 
     private void AddToBasket(long i) {
-        Product product = Product.findById(Product.class, i);
+        Product product = Product.findById(Product.class, i + 1);
         User user = User.find(User.class, "Username = ?", LoginActivity.user).get(0);
-        if (user.getBaskets().size() == 0) {
+        if (user.getBaskets() == null) {
             List<Product> products = new ArrayList<>();
             products.add(product);
             Basket basket = new Basket(products);
             basket.setPrice(product.getPrice());
-            List<Basket> baskets = user.getBaskets();
+            List<Basket> baskets = new ArrayList<>();
             baskets.add(basket);
             user.setBaskets(baskets);
-            user.save();
+            Long id = user.update();;
+            //todo update user
+            Log.wtf("id", String.valueOf(id));
             return;
         } else {
             List<Basket> baskets = user.getBaskets();
@@ -99,7 +102,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
                 basket1.setPrice(product.getPrice());
                 baskets.add(basket1);
                 user.setBaskets(baskets);
-                user.save();
+                user.update();
             } else {
                 List<Product> products = basket.getProducts();
                 products.add(product);
@@ -111,7 +114,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
                 }
                 basket.setPrice(price);
                 user.setBaskets(baskets);
-                user.save();
+                user.update();
             }
         }
     }

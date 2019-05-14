@@ -42,7 +42,7 @@
             android:value="@string/google_maps_key" />
         <meta-data
             android:name="DATABASE"
-            android:value="db.db" />
+            android:value="MyDB.db" />
         <meta-data
             android:name="VERSION"
             android:value="3" />

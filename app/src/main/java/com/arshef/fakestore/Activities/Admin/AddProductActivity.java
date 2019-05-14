@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.arshef.fakestore.Models.Product;
 import com.arshef.fakestore.R;
 import com.arshef.fakestore.Tools.StaticTools;
+import com.orm.SugarContext;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -28,6 +29,7 @@ public class AddProductActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
+        SugarContext.init(this);
         Button uploadBtn = findViewById(R.id.uploadBtn);
         final TextView titleTxt = findViewById(R.id.titleTxt);
         final TextView priceTxt = findViewById(R.id.priceTxt);
