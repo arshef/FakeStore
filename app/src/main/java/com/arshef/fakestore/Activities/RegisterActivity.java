@@ -45,7 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if(Username.equals("")) {
                     isAllowed = false;
                     usr_error.setTextColor(Color.rgb(204, 0, 0));
-                    usr_error.setText("Username Invalid \uD83D\uDE25");
+                    usr_error.setText("Invalid Username  \uD83D\uDE25");
                     usr_error.setVisibility(View.VISIBLE);
                 }
                 else if (StaticTools.Authenticate(Username)) {
