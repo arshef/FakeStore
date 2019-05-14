@@ -40,13 +40,24 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+                final TextView usr_error =findViewById(R.id.usrerror);
                 Username = username.getText().toString();
-                if (StaticTools.Authenticate(Username)) {
+                if(Username.equals("")) {
                     isAllowed = false;
-                    //todo textview incorrect
+                    usr_error.setTextColor(Color.rgb(204, 0, 0));
+                    usr_error.setText("Invalid Username  \uD83D\uDE25");
+                    usr_error.setVisibility(View.VISIBLE);
+                }
+                else if (StaticTools.Authenticate(Username)) {
+                    isAllowed = false;
+                    usr_error.setTextColor(Color.rgb(204, 0, 0));
+                    usr_error.setText("Username Invalid \uD83D\uDE25");
+                    usr_error.setVisibility(View.VISIBLE);
                 } else {
                     isAllowed = true;
-                    //Todo:Textview correct and green
+                    usr_error.setTextColor(Color.rgb(0, 153, 51));
+                    usr_error.setText("Fine \uD83D\uDE0A");
+                    usr_error.setVisibility(View.VISIBLE);
                 }
             }
         });

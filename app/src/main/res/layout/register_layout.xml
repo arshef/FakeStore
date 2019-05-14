@@ -27,7 +27,7 @@
         android:layout_width="220dp"
         android:layout_height="50dp"
         android:layout_marginStart="96dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="45dp"
         android:layout_marginEnd="95dp"
         android:ems="10"
         android:hint="Password"
@@ -41,7 +41,7 @@
         android:layout_width="220dp"
         android:layout_height="50dp"
         android:layout_marginStart="96dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="45dp"
         android:layout_marginEnd="95dp"
         android:ems="10"
         android:hint="Confirm Password"
@@ -68,10 +68,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="9dp"
         android:text="TextView"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirmpass" />
+
+    <TextView
+        android:id="@+id/usrerror"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="9dp"
+        android:text="TextView"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/username" />
 
 </android.support.constraint.ConstraintLayout>
