@@ -15,8 +15,32 @@ public class Basket extends SugarRecord {
     public Basket() {
     }
 
-    public Basket(int price, boolean isActive) {
+    public Basket(List<Product> products) {
+        Products = products;
+        IsActive = true;
+    }
+
+    public List<Product> getProducts() {
+        return Products;
+    }
+
+    public void setActive(boolean active) {
+        IsActive = active;
+    }
+
+    public void setProducts(List<Product> products) {
+        Products = products;
+    }
+
+    public void setPrice(int price) {
         Price = price;
-        IsActive = isActive;
+    }
+
+    public boolean isActive() {
+        return IsActive;
+    }
+
+    public int getPrice() {
+        return Price;
     }
 }

@@ -4,6 +4,7 @@ import com.orm.SugarRecord;
 import com.orm.dsl.NotNull;
 import com.orm.dsl.Unique;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User extends SugarRecord {
@@ -20,5 +21,14 @@ public class User extends SugarRecord {
     public User(String username, String password) {
         Username = username;
         Password = password;
+        Baskets = new ArrayList<>();
+    }
+
+    public List<Basket> getBaskets() {
+        return Baskets;
+    }
+
+    public void setBaskets(List<Basket> baskets) {
+        Baskets = baskets;
     }
 }

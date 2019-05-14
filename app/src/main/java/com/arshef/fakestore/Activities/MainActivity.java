@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.arshef.fakestore.R;
-import com.arshef.fakestore.Tools.DBTools;
 import com.orm.SugarContext;
 import com.orm.SugarDb;
 
@@ -14,7 +13,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
-    DBTools dbTools;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

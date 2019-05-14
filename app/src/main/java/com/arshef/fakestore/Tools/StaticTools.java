@@ -15,7 +15,7 @@ public class StaticTools {
     }
 
     public static Bitmap GetImageFromBytes(byte[] byteArray, int width, int height) {
-        if (byteArray == null) return null;
+        if (byteArray.length == 0) return null;
         Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         Bitmap bitmap = Bitmap.createScaledBitmap(bmp, width, height, false);
         return bitmap;

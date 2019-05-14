@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,23 +30,23 @@ public class AddProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_product);
         Button uploadBtn = findViewById(R.id.uploadBtn);
         final TextView titleTxt = findViewById(R.id.titleTxt);
-        TextView priceTxt = findViewById(R.id.priceTxt);
+        final TextView priceTxt = findViewById(R.id.priceTxt);
         Button saveBtn = findViewById(R.id.saveBtn);
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String title = titleTxt.getText().toString();
-                int price = Integer.parseInt(titleTxt.getText().toString());
+                int price = Integer.parseInt(priceTxt.getText().toString());
                 Product product = new Product(title, price);
-                if (bytes != null)
+                if (bytes.length != 0)
                     product.setImage(bytes);
-                product.save();
+                long l = product.save();
+                Log.e("e", "******************");
+                Log.wtf("Data added: ", String.valueOf(l));
+                Log.e("e", "******************");
             }
         });
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_CODE);
-//            return;
-//        }
+
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

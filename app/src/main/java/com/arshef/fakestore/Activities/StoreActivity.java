@@ -10,7 +10,6 @@ import com.arshef.fakestore.Models.Product;
 import com.arshef.fakestore.R;
 import com.arshef.fakestore.Tools.RVAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class StoreActivity extends AppCompatActivity {
@@ -22,13 +21,8 @@ public class StoreActivity extends AppCompatActivity {
         rv.setHasFixedSize(true);
         GridLayoutManager glm = new GridLayoutManager(this, 1);
         rv.setLayoutManager(glm);
-        List<Product> products = new ArrayList<>();
-        products.add(new Product("A", 1));
-        products.add(new Product("B", 2));
-        products.add(new Product("C", 3));
-        products.add(new Product("D", 4));
-//        RVAdapter adapter = new RVAdapter(Product.listAll(Product.class));
-        RVAdapter adapter = new RVAdapter(products);
+        List<Product> products = Product.listAll(Product.class);
+        RVAdapter adapter = new RVAdapter(products, this);
         rv.setAdapter(adapter);
     }
 }

@@ -18,6 +18,7 @@ import com.arshef.fakestore.Tools.StaticTools;
 public class LoginActivity extends AppCompatActivity {
 
     public static boolean isLoggedIn = false;
+    public static String user;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, AddProductActivity.class);
-
+                startActivity(intent);
             }
         });
         TextView signupLabel = findViewById(R.id.signupLabel);
@@ -50,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (StaticTools.Authenticate(username.getText().toString())) {
                     if (Authorize(username.getText().toString(), password.getText().toString())) {
                         isLoggedIn = true;
+                        user = username.getText().toString();
                         Intent intent = new Intent(LoginActivity.this, StoreActivity.class);
                         startActivity(intent);
                     } else {
