@@ -7,16 +7,24 @@ import android.widget.Toast;
 
 import com.arshef.fakestore.Models.User;
 
+import java.io.ByteArrayOutputStream;
+
 public class StaticTools {
     public static void ToastMaker(Context context, String text) {
         Toast.makeText(context, text, Toast.LENGTH_LONG).show();
     }
 
     public static Bitmap GetImageFromBytes(byte[] byteArray, int width, int height) {
-        if (byteArray==null) return null;
+        if (byteArray == null) return null;
         Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         Bitmap bitmap = Bitmap.createScaledBitmap(bmp, width, height, false);
         return bitmap;
+    }
+
+    public static byte[] GetBytesFromImage(Bitmap bitmap, int quality) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, quality, stream);
+        return stream.toByteArray();
     }
 
 

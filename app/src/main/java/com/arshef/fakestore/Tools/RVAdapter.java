@@ -33,7 +33,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int i) {
         ProductViewHolder.Title.setText(Products.get(i).getTitle());
-        ProductViewHolder.Price.setText(String.valueOf(Products.get(i).getPrice()));
+        ProductViewHolder.Price.setText(String.format("%s T", String.valueOf(Products.get(i).getPrice())));
         if (Products.get(i).getImage() != null) {
             ProductViewHolder.Image.setImageBitmap(StaticTools.GetImageFromBytes(Products.get(i).getImage(), 60, 60));
         }

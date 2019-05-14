@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.arshef.fakestore.Activities.Admin.AddProductActivity;
 import com.arshef.fakestore.Models.User;
 import com.arshef.fakestore.R;
 import com.arshef.fakestore.Tools.StaticTools;
@@ -22,6 +23,14 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
+        Button button = findViewById(R.id.btn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, AddProductActivity.class);
+
+            }
+        });
         TextView signupLabel = findViewById(R.id.signupLabel);
         signupLabel.setPaintFlags(signupLabel.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         signupLabel.setLinksClickable(true);

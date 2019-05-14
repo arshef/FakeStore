@@ -31,4 +31,12 @@ public class Product extends SugarRecord {
     public byte[] getImage() {
         return Image;
     }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public void setImage(byte[] image) {
+        Image = image;
+    }
 }
