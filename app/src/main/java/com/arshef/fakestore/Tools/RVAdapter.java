@@ -73,7 +73,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
         Product product = Product.findById(Product.class, i + 1);
 //        User user = User.find(User.class, "Username = ?", LoginActivity.user).get(0);
         User user = User.findById(User.class,1);
-        long i1 = user.getId();
         //kolan basket nadasht
         if (user.getBaskets() == null) {
             List<ProductBasket> products = new ArrayList<ProductBasket>();
@@ -81,13 +80,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
             products.add(pb);
             Basket basket = new Basket(products);
             basket.setPrice(product.getPrice());
-            List<Basket> baskets = new ArrayList<Basket>();
+            List<Basket> baskets = new ArrayList<>();
             baskets.add(basket);
+            User.Baskets = baskets;
             user.setBaskets(baskets);
-            user.save();
-            List<User> users = User.listAll(User.class);
-            //todo update user
-//            Log.wtf("id", String.valueOf(id));
             return;
         } else {
             List<Basket> baskets = user.getBaskets();
@@ -108,7 +104,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
                 basket1.setPrice(product.getPrice());
                 baskets.add(basket1);
                 user.setBaskets(baskets);
-                user.save();
             } else {
                 List<ProductBasket> products = basket.getProducts();
                 //todo check duplicate product
@@ -122,7 +117,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
                 }
                 basket.setPrice(price);
                 user.setBaskets(baskets);
-                user.save();
             }
         }
     }

@@ -13,7 +13,6 @@ public class Basket extends SugarRecord {
     boolean IsActive;
     @Ignore
     List<ProductBasket> Products;
-    String ProductsString;
 
     public Basket() {
     }
@@ -45,11 +44,5 @@ public class Basket extends SugarRecord {
 
     public int getPrice() {
         return Price;
-    }
-
-    @androidx.annotation.NonNull
-    @Override
-    public String toString() {
-        return App.getGson()
     }
 }

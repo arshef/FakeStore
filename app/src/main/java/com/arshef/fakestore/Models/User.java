@@ -1,6 +1,7 @@
 package com.arshef.fakestore.Models;
 
 import com.orm.SugarRecord;
+import com.orm.dsl.Ignore;
 import com.orm.dsl.NotNull;
 import com.orm.dsl.Unique;
 
@@ -10,7 +11,8 @@ public class User extends SugarRecord {
     String Username;
     @NotNull
     String Password;
-    Basket Baskets;
+    @Ignore
+    public static Basket Basket;
 
     public User() {
     }
@@ -20,11 +22,11 @@ public class User extends SugarRecord {
         Password = password;
     }
 
-    public Basket getBaskets() {
-        return Baskets;
+    public static com.arshef.fakestore.Models.Basket getBasket() {
+        return Basket;
     }
 
-    public void setBaskets(Basket baskets) {
-        Baskets = baskets;
+    public static void setBasket(com.arshef.fakestore.Models.Basket basket) {
+        Basket = basket;
     }
 }

@@ -40,7 +40,7 @@ public class AddProductActivity extends AppCompatActivity {
                 String title = titleTxt.getText().toString();
                 int price = Integer.parseInt(priceTxt.getText().toString());
                 Product product = new Product(title, price);
-                if (bytes.length != 0)
+                if (bytes != null)
                     product.setImage(bytes);
                 long l = product.save();
                 Log.e("e", "******************");

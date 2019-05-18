@@ -6,9 +6,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.arshef.fakestore.Models.Basket;
 import com.arshef.fakestore.Models.User;
 import com.arshef.fakestore.R;
 import com.orm.SugarContext;
+
+import java.util.List;
 
 public class BasketActivity extends AppCompatActivity {
     @Override
@@ -26,7 +29,8 @@ public class BasketActivity extends AppCompatActivity {
         });
 
         User user = User.findById(User.class, 1);
-        user.getBaskets();
+        List<Basket> baskets = User.Baskets;
+        //user.getBaskets();
         int a = 2 + 3;
 //        for (Basket basket :
 //                baskets) {
