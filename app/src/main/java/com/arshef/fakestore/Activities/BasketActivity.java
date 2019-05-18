@@ -2,8 +2,10 @@ package com.arshef.fakestore.Activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import com.arshef.fakestore.Models.Basket;
 import com.arshef.fakestore.Models.User;
@@ -18,6 +20,14 @@ public class BasketActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basket);
         SugarContext.init(this);
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.hide();
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //todo checkout basket
+            }
+        });
         User user = User.find(User.class, "Username = ?", LoginActivity.user).get(0);
         List<Basket> baskets = user.getBaskets();
         int a = 2 + 3;
