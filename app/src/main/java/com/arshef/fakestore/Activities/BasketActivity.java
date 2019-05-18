@@ -4,15 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 
-import com.arshef.fakestore.Models.Basket;
 import com.arshef.fakestore.Models.User;
 import com.arshef.fakestore.R;
 import com.orm.SugarContext;
-
-import java.util.List;
 
 public class BasketActivity extends AppCompatActivity {
     @Override
@@ -28,14 +24,15 @@ public class BasketActivity extends AppCompatActivity {
                 //todo checkout basket
             }
         });
-        User user = User.find(User.class, "Username = ?", LoginActivity.user).get(0);
-        List<Basket> baskets = user.getBaskets();
+
+        User user = User.findById(User.class, 1);
+        user.getBaskets();
         int a = 2 + 3;
-        for (Basket basket :
-                baskets) {
-            Log.wtf("*", "******************");
-            Log.wtf("*", String.valueOf(basket.isActive()));
-            Log.wtf("*", "******************");
-        }
+//        for (Basket basket :
+//                baskets) {
+//            Log.wtf("*", "******************");
+//            Log.wtf("*", String.valueOf(basket.isActive()));
+//            Log.wtf("*", "******************");
+//        }
     }
 }

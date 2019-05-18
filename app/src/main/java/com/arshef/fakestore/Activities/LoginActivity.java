@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.arshef.fakestore.Activities.Admin.AddProductActivity;
 import com.arshef.fakestore.Models.User;
 import com.arshef.fakestore.R;
 import com.arshef.fakestore.Tools.StaticTools;
@@ -27,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, MapActivity.class);
+                Intent intent = new Intent(LoginActivity.this, AddProductActivity.class);
                 startActivity(intent);
             }
         });

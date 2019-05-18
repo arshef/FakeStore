@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.arshef.fakestore.Activities.BasketActivity;
-import com.arshef.fakestore.Activities.LoginActivity;
 import com.arshef.fakestore.Models.Basket;
 import com.arshef.fakestore.Models.Product;
 import com.arshef.fakestore.Models.ProductBasket;
@@ -73,24 +71,23 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
 
     private void AddToBasket(long i) {
         Product product = Product.findById(Product.class, i + 1);
-        User user = User.find(User.class, "Username = ?", LoginActivity.user).get(0);
+//        User user = User.find(User.class, "Username = ?", LoginActivity.user).get(0);
+        User user = User.findById(User.class,1);
         long i1 = user.getId();
         //kolan basket nadasht
-        if (user.getBaskets().size() == 0) {
-            List<ProductBasket> products = new ArrayList<>();
+        if (user.getBaskets() == null) {
+            List<ProductBasket> products = new ArrayList<ProductBasket>();
             ProductBasket pb = new ProductBasket(product);
             products.add(pb);
             Basket basket = new Basket(products);
             basket.setPrice(product.getPrice());
-            List<Basket> baskets = new ArrayList<>();
+            List<Basket> baskets = new ArrayList<Basket>();
             baskets.add(basket);
             user.setBaskets(baskets);
-            Long id = user.save();
-            if (i1 == id) {
-                int a = 2 + 3;
-            }
+            user.save();
+            List<User> users = User.listAll(User.class);
             //todo update user
-            Log.wtf("id", String.valueOf(id));
+//            Log.wtf("id", String.valueOf(id));
             return;
         } else {
             List<Basket> baskets = user.getBaskets();

@@ -1,6 +1,7 @@
 package com.arshef.fakestore.Models;
 
 import com.orm.SugarRecord;
+import com.orm.dsl.Ignore;
 import com.orm.dsl.NotNull;
 
 import java.util.List;
@@ -10,7 +11,9 @@ public class Basket extends SugarRecord {
     int Price;
     @NotNull
     boolean IsActive;
+    @Ignore
     List<ProductBasket> Products;
+    String ProductsString;
 
     public Basket() {
     }
@@ -42,5 +45,11 @@ public class Basket extends SugarRecord {
 
     public int getPrice() {
         return Price;
+    }
+
+    @androidx.annotation.NonNull
+    @Override
+    public String toString() {
+        return App.getGson()
     }
 }
