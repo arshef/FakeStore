@@ -17,6 +17,7 @@ import com.arshef.fakestore.Activities.BasketActivity;
 import com.arshef.fakestore.Activities.LoginActivity;
 import com.arshef.fakestore.Models.Basket;
 import com.arshef.fakestore.Models.Product;
+import com.arshef.fakestore.Models.ProductBasket;
 import com.arshef.fakestore.Models.User;
 import com.arshef.fakestore.R;
 
@@ -74,9 +75,11 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
         Product product = Product.findById(Product.class, i + 1);
         User user = User.find(User.class, "Username = ?", LoginActivity.user).get(0);
         long i1 = user.getId();
-        if (user.getBaskets() == null) {
-            List<Product> products = new ArrayList<>();
-            products.add(product);
+        //kolan basket nadasht
+        if (user.getBaskets().size() == 0) {
+            List<ProductBasket> products = new ArrayList<>();
+            ProductBasket pb = new ProductBasket(product);
+            products.add(pb);
             Basket basket = new Basket(products);
             basket.setPrice(product.getPrice());
             List<Basket> baskets = new ArrayList<>();
@@ -99,17 +102,21 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
                     break;
                 }
             }
+            //age sabade active nadasht
             if (basket == null) {
-                List<Product> products = new ArrayList<>();
-                products.add(product);
+                List<ProductBasket> products = new ArrayList<>();
+                ProductBasket pb = new ProductBasket(product);
+                products.add(pb);
                 Basket basket1 = new Basket(products);
                 basket1.setPrice(product.getPrice());
                 baskets.add(basket1);
                 user.setBaskets(baskets);
-                user.update();
+                user.save();
             } else {
-                List<Product> products = basket.getProducts();
-                products.add(product);
+                List<ProductBasket> products = basket.getProducts();
+                //todo check duplicate product
+                ProductBasket pb = new ProductBasket(product);
+                products.add(pb);
                 basket.setProducts(products);
                 int price = 0;
                 for (Basket b :
@@ -118,7 +125,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
                 }
                 basket.setPrice(price);
                 user.setBaskets(baskets);
-                user.update();
+                user.save();
             }
         }
     }

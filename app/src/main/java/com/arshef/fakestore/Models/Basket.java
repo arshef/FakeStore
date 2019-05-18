@@ -10,17 +10,17 @@ public class Basket extends SugarRecord {
     int Price;
     @NotNull
     boolean IsActive;
-    List<Product> Products;
+    List<ProductBasket> Products;
 
     public Basket() {
     }
 
-    public Basket(List<Product> products) {
+    public Basket(List<ProductBasket> products) {
         Products = products;
         IsActive = true;
     }
 
-    public List<Product> getProducts() {
+    public List<ProductBasket> getProducts() {
         return Products;
     }
 
@@ -28,7 +28,7 @@ public class Basket extends SugarRecord {
         IsActive = active;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(List<ProductBasket> products) {
         Products = products;
     }
 
