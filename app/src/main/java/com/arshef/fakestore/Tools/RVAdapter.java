@@ -73,6 +73,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
     private void AddToBasket(long i) {
         Product product = Product.findById(Product.class, i + 1);
         User user = User.find(User.class, "Username = ?", LoginActivity.user).get(0);
+        long i1 = user.getId();
         if (user.getBaskets() == null) {
             List<Product> products = new ArrayList<>();
             products.add(product);
@@ -81,7 +82,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
             List<Basket> baskets = new ArrayList<>();
             baskets.add(basket);
             user.setBaskets(baskets);
-            Long id = user.update();;
+            Long id = user.save();
+            if (i1 == id) {
+                int a = 2 + 3;
+            }
             //todo update user
             Log.wtf("id", String.valueOf(id));
             return;

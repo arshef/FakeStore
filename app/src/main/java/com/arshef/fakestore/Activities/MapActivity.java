@@ -2,15 +2,18 @@ package com.arshef.fakestore.Activities;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import com.arshef.fakestore.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -24,6 +27,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private static final int PERMISSION_REQUEST_CODE = 1;
     private Location location;
+    private FloatingActionButton fab;
+    public static LatLng pos = null;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +37,15 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        fab = findViewById(R.id.fab);
+        fab.hide();
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MapActivity.this, SendingActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -57,6 +71,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 markerOptions.position(latLng);
                 mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
                 mMap.addMarker(markerOptions);
+                pos = latLng;
+                fab.show();
             }
         });
     }
