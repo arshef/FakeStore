@@ -81,10 +81,16 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
             Basket basket = new Basket(products);
             basket.setPrice(product.getPrice());
             User.Basket = basket;
-            return;
         } else {
             List<ProductBasket> products = User.Basket.getProducts();
             ProductBasket productBasket = null;
+            for (ProductBasket j :
+                    User.Basket.getProducts()) {
+                if (j.getProduct().getId().equals(product.getId())) {
+                    j.setCount(j.getCount() + 1);
+                    return;
+                }
+            }
             ProductBasket pb = new ProductBasket(product);
             products.add(pb);
             User.Basket.setProducts(products);
