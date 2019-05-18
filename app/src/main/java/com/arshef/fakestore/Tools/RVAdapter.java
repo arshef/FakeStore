@@ -72,52 +72,28 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
     private void AddToBasket(long i) {
         Product product = Product.findById(Product.class, i + 1);
 //        User user = User.find(User.class, "Username = ?", LoginActivity.user).get(0);
-        User user = User.findById(User.class,1);
+        User user = User.findById(User.class, 1);
         //kolan basket nadasht
-        if (user.getBaskets() == null) {
-            List<ProductBasket> products = new ArrayList<ProductBasket>();
+        if (user.Basket == null) {
+            List<ProductBasket> products = new ArrayList<>();
             ProductBasket pb = new ProductBasket(product);
             products.add(pb);
             Basket basket = new Basket(products);
             basket.setPrice(product.getPrice());
-            List<Basket> baskets = new ArrayList<>();
-            baskets.add(basket);
-            User.Baskets = baskets;
-            user.setBaskets(baskets);
+            User.Basket = basket;
             return;
         } else {
-            List<Basket> baskets = user.getBaskets();
-            Basket basket = null;
-            for (Basket b :
-                    baskets) {
-                if (b.isActive()) {
-                    basket = b;
-                    break;
-                }
+            List<ProductBasket> products = User.Basket.getProducts();
+            ProductBasket productBasket = null;
+            ProductBasket pb = new ProductBasket(product);
+            products.add(pb);
+            User.Basket.setProducts(products);
+            int price = 0;
+            for (ProductBasket p :
+                    User.Basket.getProducts()) {
+                price += p.getProduct().getPrice() * p.getCount();
             }
-            //age sabade active nadasht
-            if (basket == null) {
-                List<ProductBasket> products = new ArrayList<>();
-                ProductBasket pb = new ProductBasket(product);
-                products.add(pb);
-                Basket basket1 = new Basket(products);
-                basket1.setPrice(product.getPrice());
-                baskets.add(basket1);
-                user.setBaskets(baskets);
-            } else {
-                List<ProductBasket> products = basket.getProducts();
-                //todo check duplicate product
-                ProductBasket pb = new ProductBasket(product);
-                products.add(pb);
-                basket.setProducts(products);
-                int price = 0;
-                for (Basket b :
-                        baskets) {
-                    price += b.getPrice();
-                }
-                basket.setPrice(price);
-                user.setBaskets(baskets);
-            }
+            User.Basket.setPrice(price);
         }
     }
 

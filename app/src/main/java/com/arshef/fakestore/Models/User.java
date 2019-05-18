@@ -25,8 +25,4 @@ public class User extends SugarRecord {
     public static com.arshef.fakestore.Models.Basket getBasket() {
         return Basket;
     }
-
-    public static void setBasket(com.arshef.fakestore.Models.Basket basket) {
-        Basket = basket;
-    }
 }

@@ -11,8 +11,6 @@ import com.arshef.fakestore.Models.User;
 import com.arshef.fakestore.R;
 import com.orm.SugarContext;
 
-import java.util.List;
-
 public class BasketActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,7 +27,7 @@ public class BasketActivity extends AppCompatActivity {
         });
 
         User user = User.findById(User.class, 1);
-        List<Basket> baskets = User.Baskets;
+        Basket basket = User.Basket;
         //user.getBaskets();
         int a = 2 + 3;
 //        for (Basket basket :
