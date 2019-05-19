@@ -67,6 +67,7 @@ public class StaticTools {
         if (user.Basket == null) {
             List<ProductBasket> products = new ArrayList<>();
             ProductBasket pb = new ProductBasket(product);
+            pb.setCount(count);
             products.add(pb);
             Basket basket = new Basket(products);
             basket.setPrice(product.getPrice());

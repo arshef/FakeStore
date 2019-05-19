@@ -33,13 +33,15 @@ public class DetailsActivity extends AppCompatActivity {
         NumberPicker quantityPicker = findViewById(R.id.quantityPicker);
         quantityPicker.setMinValue(1);
         quantityPicker.setMaxValue(20);
+        quantityPicker.setValue(1);
+        quantityPicker.setWrapSelectorWheel(false);
         quantityPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                 count = newVal;
             }
         });
-        pricetxt.setText(String.format("%s T", String.valueOf(product.getPrice())));
+        pricetxt.setText(String.format("%sT", String.valueOf(product.getPrice())));
         if (product.StringToList() != null) {
             nocm.setVisibility(View.INVISIBLE);
             listView.setAdapter(new CommentsAdapter(this, product.StringToList()));
@@ -54,6 +56,7 @@ public class DetailsActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                product.save();
                 StaticTools.AddToBasket(id, count);
                 Intent intent1 = new Intent(DetailsActivity.this, BasketActivity.class);
                 startActivity(intent1);

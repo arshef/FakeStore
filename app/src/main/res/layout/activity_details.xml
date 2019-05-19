@@ -116,7 +116,9 @@
         android:id="@+id/quantityPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        tools:layout_editor_absoluteY="40dp" />
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="@+id/addBtn"
+        app:layout_constraintStart_toEndOf="@+id/textView6" />
 
 </android.support.constraint.ConstraintLayout>
