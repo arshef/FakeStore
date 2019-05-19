@@ -3,8 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/emptyLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="145dp"
+        android:text="Basket is empty!"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:visibility="invisible" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/basket_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <include
         layout="@layout/extra_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 </RelativeLayout>

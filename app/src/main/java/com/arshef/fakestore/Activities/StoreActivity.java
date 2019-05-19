@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.arshef.fakestore.Models.Product;
 import com.arshef.fakestore.R;
@@ -23,13 +24,12 @@ public class StoreActivity extends AppCompatActivity {
         GridLayoutManager glm = new GridLayoutManager(this, 1);
         rv.setLayoutManager(glm);
         List<Product> products = Product.listAll(Product.class);
-        Product product = Product.findById(Product.class, 1);
         StoreRVAdapter adapter = new StoreRVAdapter(products, this);
         rv.setAdapter(adapter);
 //
     }
 
-    public void basketclick() {
+    public void goToBasket(View view) {
         Intent intent = new Intent(this, BasketActivity.class);
         startActivity(intent);
     }

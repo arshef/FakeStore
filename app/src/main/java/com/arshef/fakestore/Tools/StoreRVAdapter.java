@@ -13,13 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.arshef.fakestore.Activities.BasketActivity;
-import com.arshef.fakestore.Models.Basket;
+import com.arshef.fakestore.Activities.DetailsActivity;
 import com.arshef.fakestore.Models.Product;
-import com.arshef.fakestore.Models.ProductBasket;
-import com.arshef.fakestore.Models.User;
 import com.arshef.fakestore.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class StoreRVAdapter extends RecyclerView.Adapter<StoreRVAdapter.ProductViewHolder> {
@@ -47,15 +44,16 @@ public class StoreRVAdapter extends RecyclerView.Adapter<StoreRVAdapter.ProductV
         productViewHolder.AddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddToBasket(id);
-                Intent intent = new Intent(Context, BasketActivity.class);
+                Intent intent = new Intent(Context, DetailsActivity.class);
+                intent.putExtra("id", id);
                 Context.startActivity(intent);
             }
         });
-        ProductViewHolder.Title.setText(Products.get(i).getTitle());
-        ProductViewHolder.Price.setText(String.format("%s T", String.valueOf(Products.get(i).getPrice())));
-        if (Products.get(i).getImage() != null) {
-            ProductViewHolder.Image.setImageBitmap(StaticTools.GetImageFromBytes(Products.get(i).getImage(), 60, 60));
+        Product product = Products.get(i);
+        ProductViewHolder.Title.setText(product.getTitle());
+        ProductViewHolder.Price.setText(String.format("%s T", String.valueOf(product.getPrice())));
+        if (product.getImage() != null) {
+            ProductViewHolder.Image.setImageBitmap(StaticTools.GetImageFromBytes(product.getImage(), 60, 60));
         }
     }
 
@@ -67,40 +65,6 @@ public class StoreRVAdapter extends RecyclerView.Adapter<StoreRVAdapter.ProductV
     @Override
     public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
-    }
-
-    private void AddToBasket(long i) {
-        Product product = Product.findById(Product.class, i + 1);
-//        User user = User.find(User.class, "Username = ?", LoginActivity.user).get(0);
-        User user = User.findById(User.class, 1);
-        //kolan basket nadasht
-        if (user.Basket == null) {
-            List<ProductBasket> products = new ArrayList<>();
-            ProductBasket pb = new ProductBasket(product);
-            products.add(pb);
-            Basket basket = new Basket(products);
-            basket.setPrice(product.getPrice());
-            User.Basket = basket;
-        } else {
-            List<ProductBasket> products = User.Basket.getProducts();
-            ProductBasket productBasket = null;
-            for (ProductBasket j :
-                    User.Basket.getProducts()) {
-                if (j.getProduct().getId().equals(product.getId())) {
-                    j.setCount(j.getCount() + 1);
-                    return;
-                }
-            }
-            ProductBasket pb = new ProductBasket(product);
-            products.add(pb);
-            User.Basket.setProducts(products);
-            int price = 0;
-            for (ProductBasket p :
-                    User.Basket.getProducts()) {
-                price += p.getProduct().getPrice() * p.getCount();
-            }
-            User.Basket.setPrice(price);
-        }
     }
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder {

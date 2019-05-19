@@ -4,37 +4,49 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
-import com.arshef.fakestore.Models.Basket;
+import com.arshef.fakestore.Models.ProductBasket;
 import com.arshef.fakestore.Models.User;
 import com.arshef.fakestore.R;
+import com.arshef.fakestore.Tools.BasketRVAdapter;
 import com.orm.SugarContext;
+
+import java.util.List;
 
 public class BasketActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basket);
+        TextView emptyLabel = findViewById(R.id.emptyLabel);
         SugarContext.init(this);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.hide();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //todo checkout basket
+                Checkout();
             }
         });
+        if (User.Basket != null) {
+            emptyLabel.setVisibility(View.INVISIBLE);
+            RecyclerView rv = findViewById(R.id.basket_rv);
+            rv.setHasFixedSize(true);
+            GridLayoutManager glm = new GridLayoutManager(this, 1);
+            rv.setLayoutManager(glm);
+            List<ProductBasket> products = User.Basket.getProducts();
+            BasketRVAdapter adapter = new BasketRVAdapter(products, this);
+            rv.setAdapter(adapter);
+        } else {
+            emptyLabel.setVisibility(View.VISIBLE);
+        }
+    }
 
-        User user = User.findById(User.class, 1);
-        Basket basket = User.Basket;
-        //user.getBaskets();
-        int a = 2 + 3;
-//        for (Basket basket :
-//                baskets) {
-//            Log.wtf("*", "******************");
-//            Log.wtf("*", String.valueOf(basket.isActive()));
-//            Log.wtf("*", "******************");
-//        }
+    private void Checkout() {
+        //todo
     }
 }

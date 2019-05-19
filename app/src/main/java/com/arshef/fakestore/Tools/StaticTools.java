@@ -5,10 +5,15 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.Toast;
 
+import com.arshef.fakestore.Models.Basket;
+import com.arshef.fakestore.Models.Product;
+import com.arshef.fakestore.Models.ProductBasket;
 import com.arshef.fakestore.Models.User;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StaticTools {
     public static void ToastMaker(Context context, String text) {
@@ -56,4 +61,36 @@ public class StaticTools {
         return Math.sqrt(distance);
     }
 
+    public static void AddToBasket(long i) {
+        Product product = Product.findById(Product.class, i + 1);
+        User user = User.findById(User.class, 1);
+        //kolan basket nadasht
+        if (user.Basket == null) {
+            List<ProductBasket> products = new ArrayList<>();
+            ProductBasket pb = new ProductBasket(product);
+            products.add(pb);
+            Basket basket = new Basket(products);
+            basket.setPrice(product.getPrice());
+            User.Basket = basket;
+        } else {
+            List<ProductBasket> products = User.Basket.getProducts();
+            ProductBasket productBasket = null;
+            for (ProductBasket j :
+                    User.Basket.getProducts()) {
+                if (j.getProduct().getId().equals(product.getId())) {
+                    j.setCount(j.getCount() + 1);
+                    return;
+                }
+            }
+            ProductBasket pb = new ProductBasket(product);
+            products.add(pb);
+            User.Basket.setProducts(products);
+            int price = 0;
+            for (ProductBasket p :
+                    User.Basket.getProducts()) {
+                price += p.getProduct().getPrice() * p.getCount();
+            }
+            User.Basket.setPrice(price);
+        }
+    }
 }

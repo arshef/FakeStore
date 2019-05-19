@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:padding="16dp">
@@ -56,10 +57,20 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="32dp"
                 android:layout_toRightOf="@+id/basketProductPrice"
-                android:textAlignment="center"
                 android:text="1"
+                android:textAlignment="center"
                 android:textSize="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="12dp"
+                android:text="Count:"
+                app:layout_constraintEnd_toStartOf="@+id/basketCount"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </android.support.constraint.ConstraintLayout>

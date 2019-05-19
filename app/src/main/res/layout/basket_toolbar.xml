@@ -16,7 +16,7 @@
             android:src="@drawable/basket"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:onClick="basketclick"/>
+            android:onClick="goToBasket"/>
 
     </android.support.constraint.ConstraintLayout>
 
