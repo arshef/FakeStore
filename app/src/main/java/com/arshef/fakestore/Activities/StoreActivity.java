@@ -25,6 +25,6 @@ public class StoreActivity extends AppCompatActivity {
         Product product = Product.findById(Product.class, 1);
         StoreRVAdapter adapter = new StoreRVAdapter(products, this);
         rv.setAdapter(adapter);
-
+//
     }
 }
