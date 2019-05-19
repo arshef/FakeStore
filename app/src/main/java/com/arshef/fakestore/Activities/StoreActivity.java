@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.arshef.fakestore.Models.Product;
 import com.arshef.fakestore.R;
-import com.arshef.fakestore.Tools.RVAdapter;
+import com.arshef.fakestore.Tools.StoreRVAdapter;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ public class StoreActivity extends AppCompatActivity {
         rv.setLayoutManager(glm);
         List<Product> products = Product.listAll(Product.class);
         Product product = Product.findById(Product.class, 1);
-        RVAdapter adapter = new RVAdapter(products, this);
+        StoreRVAdapter adapter = new StoreRVAdapter(products, this);
         rv.setAdapter(adapter);
     }
 }

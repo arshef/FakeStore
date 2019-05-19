@@ -22,12 +22,12 @@ import com.arshef.fakestore.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder> {
+public class StoreRVAdapter extends RecyclerView.Adapter<StoreRVAdapter.ProductViewHolder> {
 
     List<Product> Products;
     Context Context;
 
-    public RVAdapter(List<Product> products, android.content.Context context) {
+    public StoreRVAdapter(List<Product> products, android.content.Context context) {
         Products = products;
         Context = context;
     }
@@ -35,7 +35,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ProductViewHolder>
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_view, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.store_card_view, viewGroup, false);
         ProductViewHolder pvh = new ProductViewHolder(v);
         return pvh;
     }
