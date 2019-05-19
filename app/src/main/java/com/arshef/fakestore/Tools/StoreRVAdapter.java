@@ -8,11 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.arshef.fakestore.Activities.BasketActivity;
 import com.arshef.fakestore.Activities.DetailsActivity;
 import com.arshef.fakestore.Models.Product;
 import com.arshef.fakestore.R;
@@ -72,7 +71,7 @@ public class StoreRVAdapter extends RecyclerView.Adapter<StoreRVAdapter.ProductV
         static TextView Title;
         static TextView Price;
         static ImageView Image;
-        static Button AddBtn;
+        static ImageButton AddBtn;
 
         ProductViewHolder(View itemView) {
             super(itemView);
