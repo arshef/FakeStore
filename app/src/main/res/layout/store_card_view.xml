@@ -58,8 +58,8 @@
                 android:layout_marginEnd="32dp"
                 android:layout_toRightOf="@+id/productPrice"
                 android:background="@color/MainColor"
-                android:text="+"
-                android:textSize="40dp"
+                android:text="→"
+                android:textSize="60dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
