@@ -40,15 +40,14 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                final TextView usr_error =findViewById(R.id.usrerror);
+                final TextView usr_error = findViewById(R.id.usrerror);
                 Username = username.getText().toString();
-                if(Username.equals("")) {
+                if (Username.equals("")) {
                     isAllowed = false;
                     usr_error.setTextColor(Color.rgb(204, 0, 0));
                     usr_error.setText("Invalid Username  \uD83D\uDE25");
                     usr_error.setVisibility(View.VISIBLE);
-                }
-                else if (StaticTools.Authenticate(Username)) {
+                } else if (StaticTools.Authenticate(Username)) {
                     isAllowed = false;
                     usr_error.setTextColor(Color.rgb(204, 0, 0));
                     usr_error.setText("Username Invalid \uD83D\uDE25");
@@ -71,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
                     StaticTools.ToastMaker(RegisterActivity.this, "Check username!");
                     return;
                 }
-                AddUser();
+                AddUser(compass.getText().toString());
                 LoginActivity.isLoggedIn = true;
                 StaticTools.ToastMaker(RegisterActivity.this, "Welcome!");
                 isAllowed = false;
@@ -110,8 +109,11 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void AddUser() {
-        User user = new User(Username, Password);
-        User.save(user);
+    private void AddUser(String s) {
+        if (s.equals(Password)) {
+            User user = new User(Username, Password);
+            User.save(user);
+        }
+        StaticTools.ToastMaker(this, "Check password!");
     }
 }

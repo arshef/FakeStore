@@ -10,16 +10,15 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="105dp"
-        android:layout_marginTop="41dp"
         android:layout_marginEnd="106dp"
-        android:layout_marginBottom="424dp"
+        android:layout_marginBottom="336dp"
         android:background="@drawable/shape_drawable"
         android:text="Upload"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/priceTxt" />
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/titleTxt"
@@ -30,6 +29,7 @@
         android:layout_marginEnd="99dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:theme="@style/MyEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,8 +42,24 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="100dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
+        android:theme="@style/MyEditText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
+
+    <EditText
+        android:id="@+id/descriptionTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="100dp"
+        android:ems="10"
+        android:inputType="text"
+        android:theme="@style/MyEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
 
@@ -52,10 +68,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="162dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="162dp"
+        android:background="@drawable/radius"
         android:text="Save"
+        android:textColor="@color/White"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uploadBtn" />
 </android.support.constraint.ConstraintLayout>

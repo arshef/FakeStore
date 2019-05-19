@@ -35,10 +35,3 @@ public class MainActivity extends AppCompatActivity {
         }, 1500);
     }
 }
-
-//todo: just number in add product
-//todo:do something when photo upoloaded
-//todo:clear uploaded photo after save
-//todo:make adminpage with secret
-//todo:details page
-//todo:basket checkout button

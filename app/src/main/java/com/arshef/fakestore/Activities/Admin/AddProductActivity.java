@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -33,19 +32,26 @@ public class AddProductActivity extends AppCompatActivity {
         Button uploadBtn = findViewById(R.id.uploadBtn);
         final TextView titleTxt = findViewById(R.id.titleTxt);
         final TextView priceTxt = findViewById(R.id.priceTxt);
+        final TextView descriptionTxt = findViewById(R.id.descriptionTxt);
         Button saveBtn = findViewById(R.id.saveBtn);
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (bytes == null) {
+                    StaticTools.ToastMaker(AddProductActivity.this, "Choose a photo first");
+                    return;
+                }
                 String title = titleTxt.getText().toString();
                 int price = Integer.parseInt(priceTxt.getText().toString());
                 Product product = new Product(title, price);
-                if (bytes != null)
-                    product.setImage(bytes);
-                long l = product.save();
-                Log.e("e", "******************");
-                Log.wtf("Data added: ", String.valueOf(l));
-                Log.e("e", "******************");
+                product.setDescription(descriptionTxt.getText().toString());
+                product.setImage(bytes);
+                product.save();
+                StaticTools.ToastMaker(AddProductActivity.this, "Product Added");
+                titleTxt.setText("");
+                priceTxt.setText("");
+                descriptionTxt.setText("");
+                bytes = null;
             }
         });
 

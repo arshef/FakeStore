@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import com.arshef.fakestore.R;
 
@@ -25,7 +26,9 @@ public class CommentsAdapter extends ArrayAdapter<String> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if (convertView == null)
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.adapter_item, parent, false);
-
+        TextView comment = convertView.findViewById(R.id.comment);
+        String s = getItem(position);
+        comment.setText(s);
         return convertView;
     }
 }

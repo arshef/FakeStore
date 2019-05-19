@@ -16,6 +16,7 @@
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
+        android:theme="@style/MyEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,7 +32,8 @@
         android:layout_marginEnd="106dp"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPassword"
+        android:inputType="numberPassword"
+        android:theme="@style/MyEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username" />
@@ -44,7 +46,7 @@
         android:layout_marginStart="161dp"
         android:layout_marginTop="72dp"
         android:layout_marginEnd="162dp"
-        android:background="@color/MainColor"
+        android:background="@drawable/radius"
         android:text="Login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -66,11 +68,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="test"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -1,7 +1,6 @@
 package com.arshef.fakestore.Models;
 
 import com.orm.SugarRecord;
-import com.orm.dsl.Ignore;
 import com.orm.dsl.NotNull;
 
 import java.util.ArrayList;
@@ -41,6 +40,10 @@ public class Product extends SugarRecord {
         Description = description;
     }
 
+    public String getDescription() {
+        return Description;
+    }
+
     public void setImage(byte[] image) {
         Image = image;
     }
@@ -50,11 +53,25 @@ public class Product extends SugarRecord {
     }
 
     public List<String> StringToList() {
+        if (StoreCmnt == null)
+            return null;
         List<String> folan = new ArrayList<>();
         String[] strings = StoreCmnt.split("&%");
         for (String s : strings) {
             folan.add(s);
         }
         return folan;
+    }
+
+    public void addComment(String s) {
+        if (StringToList() != null) {
+            List<String> strings = StringToList();
+            strings.add(s);
+            saveToString(strings);
+        } else {
+            List<String> strings = new ArrayList<>();
+            strings.add(s);
+            saveToString(strings);
+        }
     }
 }

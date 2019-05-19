@@ -62,9 +62,8 @@ public class StaticTools {
     }
 
     public static void AddToBasket(long i) {
-        Product product = Product.findById(Product.class, i + 1);
+        Product product = Product.findById(Product.class, i);
         User user = User.findById(User.class, 1);
-        //kolan basket nadasht
         if (user.Basket == null) {
             List<ProductBasket> products = new ArrayList<>();
             ProductBasket pb = new ProductBasket(product);

@@ -12,4 +12,9 @@
         <item name="windowNoTitle">false</item>
         <item name="android:statusBarColor">@color/MainColor</item>
     </style>
+
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/MainColor</item>
+        <item name="colorControlActivated">@color/MainColor</item>
+    </style>
 </resources>
