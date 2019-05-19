@@ -1,5 +1,6 @@
 package com.arshef.fakestore.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -26,5 +27,10 @@ public class StoreActivity extends AppCompatActivity {
         StoreRVAdapter adapter = new StoreRVAdapter(products, this);
         rv.setAdapter(adapter);
 //
+    }
+
+    public void basketclick() {
+        Intent intent = new Intent(this, BasketActivity.class);
+        startActivity(intent);
     }
 }

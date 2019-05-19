@@ -56,6 +56,7 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="32dp"
                 android:layout_toRightOf="@+id/basketProductPrice"
+                android:textAlignment="center"
                 android:text="1"
                 android:textSize="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
