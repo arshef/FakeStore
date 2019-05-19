@@ -37,17 +37,17 @@
                 android:layout_marginTop="16dp"
                 android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/productImage" />
+                app:layout_constraintTop_toBottomOf="@+id/basketProductImage" />
 
             <TextView
                 android:id="@+id/basketProductPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_below="@+id/productTitle"
+                android:layout_below="@+id/basketProductTitle"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addBtn" />
+                app:layout_constraintTop_toBottomOf="@+id/basketCount" />
 
             <TextView
                 android:id="@+id/basketCount"
@@ -55,7 +55,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="32dp"
-                android:layout_toRightOf="@+id/productPrice"
+                android:layout_toRightOf="@+id/basketProductPrice"
                 android:text="1"
                 android:textSize="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
