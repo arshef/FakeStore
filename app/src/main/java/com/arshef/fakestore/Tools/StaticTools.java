@@ -61,7 +61,7 @@ public class StaticTools {
         return Math.sqrt(distance);
     }
 
-    public static void AddToBasket(long i) {
+    public static void AddToBasket(long i, int count) {
         Product product = Product.findById(Product.class, i);
         User user = User.findById(User.class, 1);
         if (user.Basket == null) {
@@ -73,7 +73,6 @@ public class StaticTools {
             User.Basket = basket;
         } else {
             List<ProductBasket> products = User.Basket.getProducts();
-            ProductBasket productBasket = null;
             for (ProductBasket j :
                     User.Basket.getProducts()) {
                 if (j.getProduct().getId().equals(product.getId())) {
@@ -82,6 +81,7 @@ public class StaticTools {
                 }
             }
             ProductBasket pb = new ProductBasket(product);
+            pb.setCount(count);
             products.add(pb);
             User.Basket.setProducts(products);
             int price = 0;

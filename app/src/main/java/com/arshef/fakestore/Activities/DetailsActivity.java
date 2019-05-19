@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.arshef.fakestore.Models.Product;
@@ -17,6 +18,7 @@ import com.arshef.fakestore.Tools.StaticTools;
 
 public class DetailsActivity extends AppCompatActivity {
     int id = -1;
+    int count = 1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,21 +26,20 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
         final Intent intent = getIntent();
         id = intent.getIntExtra("id", -1) + 1;
-        Product product = Product.findById(Product.class, id);
+        final Product product = Product.findById(Product.class, id);
         ListView listView = findViewById(R.id.comments_lv);
         TextView nocm = findViewById(R.id.nocm);
-        product.addComment("nice!");
-        product.addComment("good!");
-        product.addComment("nice!");
-        product.addComment("good!");
-        product.addComment("good!");
-        product.addComment("nice!");
-        product.addComment("good!");
-        product.addComment("good!");
-        product.addComment("nice!");
-        product.addComment("good!");
-        product.addComment("good!");
-        product.save();
+        TextView pricetxt = findViewById(R.id.pricetxt);
+        NumberPicker quantityPicker = findViewById(R.id.quantityPicker);
+        quantityPicker.setMinValue(1);
+        quantityPicker.setMaxValue(20);
+        quantityPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                count = newVal;
+            }
+        });
+        pricetxt.setText(String.format("%s T", String.valueOf(product.getPrice())));
         if (product.StringToList() != null) {
             nocm.setVisibility(View.INVISIBLE);
             listView.setAdapter(new CommentsAdapter(this, product.StringToList()));
@@ -53,7 +54,7 @@ public class DetailsActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StaticTools.AddToBasket(id);
+                StaticTools.AddToBasket(id, count);
                 Intent intent1 = new Intent(DetailsActivity.this, BasketActivity.class);
                 startActivity(intent1);
             }
