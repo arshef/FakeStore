@@ -14,7 +14,7 @@
 
         <activity
             android:name=".Activities.MainActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.MAIN" />
@@ -22,25 +22,28 @@
         </activity>
         <activity
             android:name=".Activities.MapActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activities.LoginActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/AppTheme.CustomActionBar" />
         <activity
             android:name=".Activities.RegisterActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activities.StoreActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activities.Admin.AddProductActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activities.BasketActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activities.SendingActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activities.DetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

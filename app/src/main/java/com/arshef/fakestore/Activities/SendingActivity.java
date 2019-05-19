@@ -11,6 +11,10 @@ public class SendingActivity extends AppCompatActivity {
     private final static LatLng myPos = null;
 
     @Override
+    public void onBackPressed() {
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sending);

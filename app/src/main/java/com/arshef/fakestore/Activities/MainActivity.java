@@ -15,6 +15,10 @@ import java.util.TimerTask;
 public class MainActivity extends AppCompatActivity {
 
     @Override
+    public void onBackPressed() {
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -28,6 +32,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
-        },1500);
+        }, 1500);
     }
 }
