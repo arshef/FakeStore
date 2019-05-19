@@ -70,7 +70,7 @@ public class StaticTools {
             pb.setCount(count);
             products.add(pb);
             Basket basket = new Basket(products);
-            basket.setPrice(product.getPrice());
+            basket.setPrice(product.getPrice() * count);
             User.Basket = basket;
         } else {
             List<ProductBasket> products = User.Basket.getProducts();
