@@ -1,5 +1,6 @@
 package com.arshef.fakestore.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -33,6 +34,7 @@ public class BasketActivity extends AppCompatActivity {
             }
         });
         if (User.Basket != null) {
+            fab.show();
             emptyLabel.setVisibility(View.INVISIBLE);
             RecyclerView rv = findViewById(R.id.basket_rv);
             rv.setHasFixedSize(true);
@@ -47,6 +49,7 @@ public class BasketActivity extends AppCompatActivity {
     }
 
     private void Checkout() {
-        //todo
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
     }
 }
