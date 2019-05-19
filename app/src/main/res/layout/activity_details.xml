@@ -10,7 +10,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginLeft="95dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
@@ -44,10 +44,20 @@
     <ListView
         android:id="@+id/comments_lv"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="250dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
     </ListView>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/product_img"
+        app:layout_constraintLeft_toLeftOf="@id/product_img"
+        android:layout_marginTop="42dp"
+        tools:layout_editor_absoluteY="287dp" />
 
 </android.support.constraint.ConstraintLayout>
