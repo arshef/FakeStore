@@ -64,7 +64,6 @@ public class DetailsActivity extends AppCompatActivity {
         });
         TextView des = findViewById(R.id.description);
         des.setText(product.getDescription());
-        //todo add textview
     }
 
     public void goToBasket(View view) {
