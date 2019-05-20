@@ -74,6 +74,7 @@ public class DetailsActivity extends AppCompatActivity {
                 if (!cmText.getText().toString().equals("")) {
                     product.addComment(cmText.getText().toString());
                     product.save();
+                    StaticTools.ToastMaker(DetailsActivity.this,"Comment added!");
                 }
             }
         });
