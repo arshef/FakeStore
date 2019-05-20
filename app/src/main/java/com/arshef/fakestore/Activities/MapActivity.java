@@ -26,7 +26,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
     private static final int PERMISSION_REQUEST_CODE = 1;
-    private Location location;
+    private Location location = null;
     private FloatingActionButton fab;
     public static LatLng pos = null;
 
@@ -61,8 +61,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         Criteria criteria = new Criteria();
         location = locationManager.getLastKnownLocation(locationManager
                 .getBestProvider(criteria, false));
-        LatLng myLocation = new LatLng(location.getLatitude(), location.getLongitude());
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 15));
+        if (location != null) {
+            LatLng myLocation = new LatLng(location.getLatitude(), location.getLongitude());
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 15));
+        }
         mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(LatLng latLng) {
