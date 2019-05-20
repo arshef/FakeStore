@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.Toast;
 
+import com.arshef.fakestore.Activities.LoginActivity;
 import com.arshef.fakestore.Models.Basket;
 import com.arshef.fakestore.Models.Product;
 import com.arshef.fakestore.Models.ProductBasket;
@@ -63,7 +64,7 @@ public class StaticTools {
 
     public static void AddToBasket(long i, int count) {
         Product product = Product.findById(Product.class, i);
-        User user = User.findById(User.class, 1);
+        User user = User.find(User.class, "Username = ?", LoginActivity.user).get(0);
         if (user.Basket == null) {
             List<ProductBasket> products = new ArrayList<>();
             ProductBasket pb = new ProductBasket(product);
@@ -77,7 +78,7 @@ public class StaticTools {
             for (ProductBasket j :
                     User.Basket.getProducts()) {
                 if (j.getProduct().getId().equals(product.getId())) {
-                    j.setCount(j.getCount() + 1);
+                    j.setCount(j.getCount() + count);
                     return;
                 }
             }

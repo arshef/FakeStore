@@ -39,7 +39,7 @@ public class BasketRVAdapter extends RecyclerView.Adapter<BasketRVAdapter.Basket
         ProductBasket pb = PBs.get(i);
         BasketProductViewHolder.Title.setText(pb.getProduct().getTitle());
         BasketProductViewHolder.Count.setText(String.valueOf(pb.getCount()));
-        BasketProductViewHolder.Price.setText(String.format("%s T", String.valueOf(pb.getProduct().getPrice())));
+        BasketProductViewHolder.Price.setText(String.format("%s T", String.valueOf(pb.getProduct().getPrice() * pb.getCount())));
         if (pb.getProduct().getImage() != null) {
             BasketProductViewHolder.Image.setImageBitmap(StaticTools.GetImageFromBytes(pb.getProduct().getImage(), 60, 60));
         }

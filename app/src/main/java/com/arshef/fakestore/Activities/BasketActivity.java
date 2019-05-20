@@ -19,6 +19,13 @@ import com.orm.SugarContext;
 import java.util.List;
 
 public class BasketActivity extends AppCompatActivity {
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, StoreActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
